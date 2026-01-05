@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashwanth Cheemarla — Data Scientist | Software Engineer</title>
+  <meta name="description" content="Yashwanth Cheemarla — Data Science & Software Engineering. Projects: DeepFake Detection, Real-time Fraud Detection (Kafka+Spark), Retirement Planning Tool. CV, projects, and contact." />
+  <meta name="author" content="Yashwanth Cheemarla" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Update after publishing -->
+  <link rel="canonical" href="https://yourusername.github.io/" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yashwanth Cheemarla — Data Scientist | Software Engineer" />
+  <meta property="og:description" content="Portfolio, projects, resume, and contact." />
+  <meta property="og:image" content="cover.jpg" />
+  <meta property="og:url" content="https://yourusername.github.io/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-secondary:#f8fafc;
+      --text:#0f172a;
+      --text-secondary:#475569;
+      --text-muted:#64748b;
+      --primary:#2563eb;
+      --primary-dark:#1e40af;
+      --primary-light:#3b82f6;
+      --accent:#8b5cf6;
+      --nav-bg:rgba(255,255,255,0.95);
+      --card:#ffffff;
+      --card-border:#e2e8f0;
+      --chip-bg:#eff6ff;
+      --chip-text:#1e40af;
+      --shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow:0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --gradient-2:linear-gradient(135deg,#2563eb 0%, #7c3aed 100%);
+    }
+    [data-theme="dark"]{
+      --bg:#0f172a;
+      --bg-secondary:#1e293b;
+      --text:#f1f5f9;
+      --text-secondary:#cbd5e1;
+      --text-muted:#94a3b8;
+      --primary:#60a5fa;
+      --primary-dark:#3b82f6;
+      --primary-light:#93c5fd;
+      --accent:#a78bfa;
+      --nav-bg:rgba(15,23,42,0.95);
+      --card:#1e293b;
+      --card-border:#334155;
+      --chip-bg:#1e3a8a;
+      --chip-text:#93c5fd;
+      --shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.5);
+      --shadow:0 4px 6px -1px rgb(0 0 0 / 0.5);
+      --shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.5);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;scroll-padding-top:80px;}
+    body{
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;}
+    .skip-link:focus{
+      left:1rem;top:1rem;width:auto;height:auto;
+      background:var(--primary);color:#fff;padding:.75rem 1rem;border-radius:.5rem;
+      text-decoration:none;font-weight:600;box-shadow:var(--shadow-lg);
+    }
+
+    header.hero{
+      position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;background:url('cover.jpg') center/cover no-repeat;color:#fff;overflow:hidden;
+    }
+    header.hero::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(37,99,235,0.92) 0%, rgba(124,58,237,0.88) 100%);
+      z-index:1;
+    }
+    header.hero::after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      z-index:1;
+    }
+    .hero-inner{
+      position:relative;z-index:2;padding:5rem 1.5rem;max-width:72rem;
+      animation:fadeInUp 0.8s ease-out;
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+    .avatar{
+      width:140px;height:140px;border-radius:50%;
+      border:4px solid rgba(255,255,255,0.9);object-fit:cover;
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+      transition:transform 0.3s ease;margin-bottom:1.5rem;
+    }
+    .avatar:hover{transform:scale(1.05);}
+
+    .title{
+      font-family:'Space Grotesk','Inter',sans-serif;
+      font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;
+      letter-spacing:-0.02em;line-height:1.1;
+    }
+    .subtitle{
+      font-size:clamp(1rem,2.5vw,1.25rem);font-weight:400;
+      opacity:0.95;max-width:52rem;margin:0 auto 2rem;line-height:1.6;
+    }
+    .hero-stats{
+      display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+      margin-bottom:2rem;font-size:0.95rem;
+    }
+    .stat-item{
+      display:flex;align-items:center;gap:0.5rem;
+      padding:0.5rem 1rem;background:rgba(255,255,255,0.15);
+      border-radius:50px;backdrop-filter:blur(10px);
+    }
+    .btn-row{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;align-items:center;gap:0.5rem;
+      padding:0.75rem 1.5rem;border-radius:0.75rem;
+      text-decoration:none;font-weight:600;font-size:0.95rem;
+      border:2px solid transparent;transition:all 0.3s ease;cursor:pointer;
+    }
+    .btn.primary{
+      background:rgba(255,255,255,0.95);color:var(--primary);
+      box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    }
+    .btn.primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.25);}
+    .btn.secondary{
+      background:transparent;color:#fff;border-color:rgba(255,255,255,0.4);backdrop-filter:blur(10px);
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);transform:translateY(-2px);}
+
+    nav.primary{
+      position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--card-border);box-shadow:var(--shadow-sm);transition:all 0.3s ease;
+    }
+    .nav-container{
+      max-width:1280px;margin:0 auto;padding:0 1.5rem;
+      display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    }
+    .nav-links{display:flex;gap:0.25rem;flex-wrap:wrap;align-items:center;}
+    nav.primary a{
+      color:var(--text-secondary);text-decoration:none;font-weight:600;font-size:0.9rem;
+      padding:1rem 1rem;border-radius:0.5rem;transition:all 0.2s ease;position:relative;
+    }
+    nav.primary a:hover{color:var(--primary);background:var(--bg-secondary);}
+    nav.primary a.active{color:var(--primary);}
+    nav.primary a.active::after{
+      content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+      width:30px;height:3px;background:var(--primary);border-radius:3px 3px 0 0;
+    }
+
+    .theme-toggle{
+      background:transparent;border:2px solid var(--card-border);color:var(--text);
+      padding:0.5rem 0.75rem;border-radius:0.5rem;cursor:pointer;font-size:1.2rem;
+      transition:all 0.2s ease;
+    }
+    .theme-toggle:hover{background:var(--bg-secondary);border-color:var(--primary);transform:rotate(15deg);}
+
+    .mobile-menu-toggle{
+      display:none;background:transparent;border:2px solid var(--card-border);color:var(--text);
+      padding:0.5rem;border-radius:0.5rem;cursor:pointer;font-size:1.2rem;
+    }
+
+    main{max-width:1280px;margin:0 auto;padding:4rem 1.5rem;}
+    section.section{display:none;animation:fadeIn 0.5s ease;}
+    section.section.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    .section-title{
+      font-family:'Space Grotesk','Inter',sans-serif;color:var(--text);
+      font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;margin-bottom:0.75rem;
+      position:relative;display:inline-block;letter-spacing:-0.01em;
+    }
+    .section-title::after{
+      content:"";position:absolute;bottom:-8px;left:0;width:60px;height:4px;
+      background:var(--gradient-2);border-radius:2px;
+    }
+    .section-header{margin-bottom:3rem;}
+    p.lead{font-size:1.125rem;color:var(--text-secondary);line-height:1.8;margin-top:1rem;}
+
+    .grid{display:grid;gap:1.5rem;margin-top:2rem;}
+    @media (min-width:768px){.grid.cols-2{grid-template-columns:repeat(2,1fr);}}
+    @media (min-width:1024px){.grid.cols-3{grid-template-columns:repeat(3,1fr);}}
+
+    .card{
+      background:var(--card);border:1px solid var(--card-border);
+      border-radius:1rem;padding:1.75rem;box-shadow:var(--shadow-sm);
+      transition:all 0.3s ease;position:relative;overflow:hidden;
+    }
+    .card::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-2);
+      transform:scaleX(0);transition:transform 0.3s ease;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--primary-light);}
+    .card:hover::before{transform:scaleX(1);}
+
+    .card h3{color:var(--text);font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;font-family:'Space Grotesk','Inter',sans-serif;}
+    .card h3 a{color:inherit;text-decoration:none;transition:color 0.2s ease;}
+    .card h3 a:hover{color:var(--primary);}
+    .card p{color:var(--text-secondary);margin-bottom:1rem;line-height:1.7;}
+    .card ul{list-style:none;margin:1rem 0;}
+    .card ul li{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:0.5rem;position:relative;line-height:1.6;}
+    .card ul li::before{content:"▹";position:absolute;left:0;color:var(--primary);font-weight:bold;}
+
+    .chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+    .chip{
+      background:var(--chip-bg);color:var(--chip-text);
+      padding:0.35rem 0.75rem;border-radius:0.5rem;
+      font-size:0.8rem;font-weight:600;transition:all 0.2s ease;border:1px solid transparent;
+    }
+    .chip:hover{background:var(--primary);color:#fff;transform:translateY(-1px);}
+
+    .project-cover{
+      width:100%;border-radius:0.75rem;border:1px solid var(--card-border);
+      margin:1rem 0;transition:transform 0.3s ease;
+    }
+    .project-cover:hover{transform:scale(1.02);}
+
+    .stats-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;margin-top:2rem;
+    }
+    .stat-card{
+      background:var(--gradient-2);color:#fff;padding:2rem;border-radius:1rem;text-align:center;
+      box-shadow:var(--shadow);transition:transform 0.3s ease;
+    }
+    .stat-card:hover{transform:translateY(-4px);}
+    .stat-card .number{font-size:2.5rem;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:0.5rem;}
+    .stat-card .label{font-size:0.95rem;opacity:0.9;}
+
+    form.contact{display:grid;gap:1rem;max-width:42rem;margin-top:2rem;}
+    form.contact input, form.contact textarea{
+      width:100%;padding:0.875rem 1rem;border-radius:0.75rem;border:2px solid var(--card-border);
+      background:var(--card);color:var(--text);font-family:inherit;font-size:0.95rem;transition:all 0.2s ease;
+    }
+    form.contact input:focus, form.contact textarea:focus{
+      outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+    }
+    form.contact textarea{resize:vertical;min-height:150px;}
+    form.contact button{
+      justify-self:start;background:var(--primary);color:#fff;border:none;
+      padding:0.875rem 2rem;border-radius:0.75rem;font-weight:600;font-size:0.95rem;
+      cursor:pointer;transition:all 0.3s ease;box-shadow:var(--shadow);
+    }
+    form.contact button:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+
+    footer{
+      background:var(--bg-secondary);color:var(--text-secondary);
+      text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--card-border);margin-top:4rem;
+    }
+    footer a{color:var(--primary);text-decoration:none;font-weight:600;}
+    footer a:hover{text-decoration:underline;}
+
+    @media (max-width:768px){
+      .mobile-menu-toggle{display:block;}
+      .nav-links{
+        position:absolute;top:100%;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(12px);
+        flex-direction:column;gap:0;border-bottom:1px solid var(--card-border);
+        max-height:0;overflow:hidden;transition:max-height 0.3s ease;
+      }
+      .nav-links.open{max-height:500px;}
+      nav.primary a{width:100%;text-align:left;padding:1rem 1.5rem;border-radius:0;}
+      nav.primary a.active::after{left:1.5rem;transform:none;bottom:0.5rem;width:40px;}
+    }
+    @media (max-width:640px){
+      .hero-stats{flex-direction:column;gap:0.75rem;}
+      .stats-grid{grid-template-columns:1fr;}
+    }
+    @media print{nav.primary,.theme-toggle,.mobile-menu-toggle{display:none;}}
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Yashwanth Cheemarla",
+    "jobTitle":"Data Science / Software Engineering",
+    "url":"https://yourusername.github.io/",
+    "sameAs":[
+      "https://github.com/yourusername",
+      "https://www.linkedin.com/in/your-linkedin/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <img class="avatar" src="avatar.jpg" alt="Portrait of Yashwanth Cheemarla" loading="eager" />
+      <h1 class="title">Yashwanth Cheemarla</h1>
+      <p class="subtitle">Data Science + Software Engineering • Building ML systems & scalable data products</p>
+
+      <div class="hero-stats">
+        <div class="stat-item"><span>💼</span><span><span id="yoe">2</span>+ Internship/Industry Experience</span></div>
+        <div class="stat-item"><span>🏆</span><span>Hackathon Winner</span></div>
+        <div class="stat-item"><span>⚡</span><span>Python • C# • SQL • Spark</span></div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn primary" href="Yashwanth_CV.pdf"><span>⬇️</span> Download CV</a>
+        <a class="btn secondary" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary" role="navigation" id="nav">
+    <div class="nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#welcome" data-section="welcome">Welcome</a>
+        <a href="#about" data-section="about">About</a>
+        <a href="#skills" data-section="skills">Skills</a>
+        <a href="#projects" data-section="projects">Projects</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </div>
+
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌓</button>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="section active" id="welcome">
+      <div class="section-header">
+        <h2 class="section-title">Welcome</h2>
+      </div>
+
+      <p class="lead">
+        Hi! I’m <strong>Yashwanth</strong> — I build end-to-end data and ML systems, from data ingestion and
+        streaming pipelines to model training, evaluation, and APIs. I’m currently focused on
+        <strong>DeepFake detection</strong>, <strong>real-time fraud detection</strong>, and building reliable services in
+        <strong>Python / C#</strong>.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="number">3</div><div class="label">Major Projects</div></div>
+        <div class="stat-card"><div class="number">Kafka</div><div class="label">Streaming + Spark</div></div>
+        <div class="stat-card"><div class="number">ML</div><div class="label">CNNs + Detection</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <p class="lead">
+          I’m a data-driven engineer who likes shipping things that actually run — clean code, clear results, and demos recruiters can view.
+        </p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>What I’m good at</h3>
+          <ul>
+            <li>Designing data pipelines & APIs (FastAPI / ASP.NET Core)</li>
+            <li>Building ML models & evaluation pipelines (CNNs, metrics, experiments)</li>
+            <li>Streaming systems (Kafka producers/consumers, Spark Structured Streaming)</li>
+            <li>Turning projects into recruiter-friendly demos (README, GIFs, video, reproducible setup)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Current focus</h3>
+          <ul>
+            <li>DeepFake detection (image + video pipelines)</li>
+            <li>Real-time fraud detection with dashboards + storage</li>
+            <li>System design fundamentals for grad roles</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <p class="lead">Tools I use most often in projects and internships.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Core Stack</h3>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">C#</span><span class="chip">SQL</span>
+            <span class="chip">ASP.NET Core</span><span class="chip">Angular</span>
+            <span class="chip">Kafka</span><span class="chip">Spark</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Git</span>
+            <span class="chip">REST APIs</span><span class="chip">Unit Testing</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ML / Data</h3>
+          <div class="chips">
+            <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-Learn</span>
+            <span class="chip">CNNs</span><span class="chip">OpenCV</span>
+            <span class="chip">Matplotlib</span><span class="chip">Model Evaluation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="lead">A few things I’m most proud of. Each has code + demo + results.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <article class="card">
+          <h3><a href="https://github.com/yourusername/deepfake-detection" target="_blank" rel="noopener">DeepFake Detection System</a></h3>
+          <p>Image + video DeepFake detection using CNN models with a reproducible evaluation pipeline.</p>
+          <img class="project-cover" src="proj_deepfake.png" alt="DeepFake Detection demo" loading="lazy" />
+          <ul>
+            <li>Training + evaluation (Accuracy / Precision / Recall / F1)</li>
+            <li>Inference pipeline for images/videos</li>
+            <li>Demo: GIF/video + clear README</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">CNN</span><span class="chip">OpenCV</span></div>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://github.com/yourusername/real-time-fraud-detection" target="_blank" rel="noopener">Real-Time Fraud Detection</a></h3>
+          <p>Streaming fraud detection using Kafka + Spark Structured Streaming with storage + monitoring.</p>
+          <img class="project-cover" src="proj_fraud.png" alt="Fraud system architecture" loading="lazy" />
+          <ul>
+            <li>Kafka producer → Spark consumer → PostgreSQL</li>
+            <li>Rule engine + anomaly signals (geo / velocity)</li>
+            <li>Dashboards (Grafana/Dash) for live insights</li>
+          </ul>
+          <div class="chips"><span class="chip">Kafka</span><span class="chip">Spark</span><span class="chip">PostgreSQL</span></div>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://github.com/yourusername/retirement-planner" target="_blank" rel="noopener">Retirement Planning Tool</a></h3>
+          <p>Full-stack financial planning tool with goals, tracking, and clean API design.</p>
+          <img class="project-cover" src="proj_retirement.png" alt="Retirement planner UI" loading="lazy" />
+          <ul>
+            <li>Angular + ASP.NET Core Web API</li>
+            <li>Goal creation + progress tracking</li>
+            <li>Clean controllers + validation</li>
+          </ul>
+          <div class="chips"><span class="chip">Angular</span><span class="chip">ASP.NET Core</span><span class="chip">SQL</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="lead">Industry experience and leadership.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Intern — Mphasis</h3>
+          <p>Worked on backend/API development and data-driven features with a focus on reliability and clean engineering.</p>
+          <ul>
+            <li>Built/maintained REST APIs and tested endpoints with Postman/Swagger</li>
+            <li>Improved validation and error handling for better UX</li>
+          </ul>
+          <div class="chips"><span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">SQL</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Experience — Honeywell</h3>
+          <p>Contributed to engineering tasks with emphasis on structured problem-solving and collaboration.</p>
+          <ul>
+            <li>Worked with team workflows (Git, reviews, documentation)</li>
+            <li>Delivered small features and fixes with clear communication</li>
+          </ul>
+          <div class="chips"><span class="chip">Git</span><span class="chip">Teamwork</span><span class="chip">Debugging</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Leadership — IEEE Web Master</h3>
+          <p>Led website and event tech support; also won a college hackathon.</p>
+          <ul>
+            <li>Improved club site updates and managed content</li>
+            <li>Hackathon win showcasing rapid prototyping</li>
+          </ul>
+          <div class="chips"><span class="chip">Leadership</span><span class="chip">Web</span><span class="chip">Delivery</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="lead">Want to collaborate or discuss roles? Message me here.</p>
+      </div>
+
+      <!-- Replace with your Formspree endpoint or remove the form -->
+      <form class="contact" action="https://formspree.io/f/yourformid" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button class="btn primary" type="submit">Send Message</button>
+      </form>
+
+      <p class="lead" style="margin-top:1rem">
+        Or email me: <a href="mailto:yourmail@example.com">yourmail@example.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Yashwanth Cheemarla • United Kingdom</span>
+  </footer>
+
+  <script>
+    // Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const storedTheme = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', storedTheme || preferred);
+    themeBtn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // SPA-like routing between sections via hash
+    const sections = Array.from(document.querySelectorAll('section.section'));
+    const navLinks = Array.from(document.querySelectorAll('nav.primary a[data-section]'));
+    function setActive(id){
+      sections.forEach(s => s.classList.toggle('active', s.id === id));
+      navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+    }
+    function route(){
+      const id = (location.hash || '#welcome').replace('#','');
+      setActive(id);
+    }
+    window.addEventListener('hashchange', route);
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinksEl = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => navLinksEl.classList.toggle('open'));
+    navLinksEl.addEventListener('click', (e) => {
+      if(e.target.tagName === 'A') navLinksEl.classList.remove('open');
+    });
+
+    // Footer year + "years of experience" placeholder logic (edit start date)
+    document.addEventListener('DOMContentLoaded', () => {
+      route();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const start = new Date('2024-01-01'); // change to your real start date
+      const now = new Date();
+      const years = Math.max(0.5, ((now - start) / (1000*60*60*24*365.25))).toFixed(1);
+      document.getElementById('yoe').textContent = years;
+    });
+  </script>
+</body>
+</html>
